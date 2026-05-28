@@ -1,5 +1,5 @@
 # iot-home-monitoring-system
-An Iot System built with two components on a Raspberry Pi Pico W and Raspberry Pi 5, using MQTT to stream sensro data from embedded hardware to a structured SQLite database in real time.
+An Iot System built with two components on a Raspberry Pi Pico W and Raspberry Pi 5, using MQTT to stream sensor data from embedded hardware to a structured SQLite database in real time.
 
 ## System Architecture
 embedded_controller.py runs on the Raspberry Pi Pico W and handles all embedded hardware interaction. It reads temperature and humidity from a DHT11 sensor, detects motion via a PIR sensor, monitors an IR sensor for presence detection, and controls four LED outputs representing rooms in a simulated smart home. Push buttons toggle room lights, and a passive buzzer triggers a security alarm on motion detection. Component states are serialized as JSON and published to an MQTT broker once per second. The system also subscribes to a control topic, allowing remote actuation of lights and the alarm via MQTT messages from the Pi.
